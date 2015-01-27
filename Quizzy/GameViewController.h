@@ -12,9 +12,18 @@
 
 @property IBOutlet UILabel * titleLabel;
 @property IBOutlet UILabel * questionLabel;
+
 @property IBOutlet UIButton * button1;
 @property IBOutlet UIButton * button2;
 @property IBOutlet UIButton * button3;
 @property IBOutlet UIButton * button4;
+
 @property(nonatomic, retain) NSMutableArray *questionsArray;
+
+@property(nonatomic, retain) IBOutlet UIProgressView *progress2;
+@property(nonatomic, retain) IBOutlet UILabel *progressLabel;
+
+@property(weak, nonatomic) IBOutlet UIButton *giveUpButton;
+@property(weak, nonatomic) IBOutlet UIButton *skipButton;
+
 @end
