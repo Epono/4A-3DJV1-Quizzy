@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A07AE6D41A65D07800989818 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A07AE6D31A65D07800989818 /* Model.m */; };
+		A0CA7C121A686B4B005D5FDA /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA7C111A686B4B005D5FDA /* GameViewController.m */; };
+		A0CAF2C61A689381006E78A7 /* ScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAF2C51A689381006E78A7 /* ScoresViewController.m */; };
+		DA5675351A69BA1800E2CA05 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5675341A69BA1800E2CA05 /* Question.m */; };
+		EC9D74161A726785008D5EF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74151A726785008D5EF6 /* Reachability.m */; };
+		EC9D742B1A726827008D5EF6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74191A726827008D5EF6 /* AFHTTPRequestOperation.m */; };
+		EC9D742C1A726827008D5EF6 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D741B1A726827008D5EF6 /* AFHTTPRequestOperationManager.m */; };
+		EC9D742D1A726827008D5EF6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D741D1A726827008D5EF6 /* AFHTTPSessionManager.m */; };
+		EC9D742E1A726827008D5EF6 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74201A726827008D5EF6 /* AFNetworkReachabilityManager.m */; };
+		EC9D742F1A726827008D5EF6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74221A726827008D5EF6 /* AFSecurityPolicy.m */; };
+		EC9D74301A726827008D5EF6 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74241A726827008D5EF6 /* AFURLConnectionOperation.m */; };
+		EC9D74311A726827008D5EF6 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74261A726827008D5EF6 /* AFURLRequestSerialization.m */; };
+		EC9D74321A726827008D5EF6 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74281A726827008D5EF6 /* AFURLResponseSerialization.m */; };
+		EC9D74331A726827008D5EF6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D742A1A726827008D5EF6 /* AFURLSessionManager.m */; };
+		ECB779A21A41D68200A096C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB779A11A41D68200A096C4 /* main.m */; };
+		ECB779A51A41D68200A096C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB779A41A41D68200A096C4 /* AppDelegate.m */; };
+		ECB779A81A41D68200A096C4 /* Quizzy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECB779A61A41D68200A096C4 /* Quizzy.xcdatamodeld */; };
+		ECB779AB1A41D68200A096C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB779AA1A41D68200A096C4 /* ViewController.m */; };
+		ECB779AE1A41D68200A096C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB779AC1A41D68200A096C4 /* Main.storyboard */; };
+		ECB779B01A41D68200A096C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB779AF1A41D68200A096C4 /* Images.xcassets */; };
+		ECB779B31A41D68200A096C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECB779B11A41D68200A096C4 /* LaunchScreen.xib */; };
+		ECB779BF1A41D68200A096C4 /* QuizzyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB779BE1A41D68200A096C4 /* QuizzyTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECB779B91A41D68200A096C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECB779941A41D68200A096C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECB7799B1A41D68200A096C4;
+			remoteInfo = Quizzy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A07AE6D21A65D07800989818 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		A07AE6D31A65D07800989818 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		A0CA7C101A686B4B005D5FDA /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		A0CA7C111A686B4B005D5FDA /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		A0CAF2C41A689381006E78A7 /* ScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresViewController.h; sourceTree = "<group>"; };
+		A0CAF2C51A689381006E78A7 /* ScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoresViewController.m; sourceTree = "<group>"; };
+		DA5675331A69BA1800E2CA05 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		DA5675341A69BA1800E2CA05 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		EC9D74141A726785008D5EF6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EC9D74151A726785008D5EF6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		EC9D74181A726827008D5EF6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		EC9D74191A726827008D5EF6 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		EC9D741A1A726827008D5EF6 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		EC9D741B1A726827008D5EF6 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		EC9D741C1A726827008D5EF6 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		EC9D741D1A726827008D5EF6 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		EC9D741E1A726827008D5EF6 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		EC9D741F1A726827008D5EF6 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		EC9D74201A726827008D5EF6 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		EC9D74211A726827008D5EF6 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		EC9D74221A726827008D5EF6 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		EC9D74231A726827008D5EF6 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		EC9D74241A726827008D5EF6 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		EC9D74251A726827008D5EF6 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		EC9D74261A726827008D5EF6 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		EC9D74271A726827008D5EF6 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		EC9D74281A726827008D5EF6 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		EC9D74291A726827008D5EF6 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		EC9D742A1A726827008D5EF6 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		ECB7799C1A41D68200A096C4 /* Quizzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB779A01A41D68200A096C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECB779A11A41D68200A096C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECB779A31A41D68200A096C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ECB779A41A41D68200A096C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ECB779A71A41D68200A096C4 /* Quizzy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quizzy.xcdatamodel; sourceTree = "<group>"; };
+		ECB779A91A41D68200A096C4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ECB779AA1A41D68200A096C4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ECB779AD1A41D68200A096C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECB779AF1A41D68200A096C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ECB779B21A41D68200A096C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		ECB779B81A41D68200A096C4 /* QuizzyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizzyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB779BD1A41D68200A096C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECB779BE1A41D68200A096C4 /* QuizzyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizzyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECB779991A41D68200A096C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB779B51A41D68200A096C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC9D74171A726827008D5EF6 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				EC9D74181A726827008D5EF6 /* AFHTTPRequestOperation.h */,
+				EC9D74191A726827008D5EF6 /* AFHTTPRequestOperation.m */,
+				EC9D741A1A726827008D5EF6 /* AFHTTPRequestOperationManager.h */,
+				EC9D741B1A726827008D5EF6 /* AFHTTPRequestOperationManager.m */,
+				EC9D741C1A726827008D5EF6 /* AFHTTPSessionManager.h */,
+				EC9D741D1A726827008D5EF6 /* AFHTTPSessionManager.m */,
+				EC9D741E1A726827008D5EF6 /* AFNetworking.h */,
+				EC9D741F1A726827008D5EF6 /* AFNetworkReachabilityManager.h */,
+				EC9D74201A726827008D5EF6 /* AFNetworkReachabilityManager.m */,
+				EC9D74211A726827008D5EF6 /* AFSecurityPolicy.h */,
+				EC9D74221A726827008D5EF6 /* AFSecurityPolicy.m */,
+				EC9D74231A726827008D5EF6 /* AFURLConnectionOperation.h */,
+				EC9D74241A726827008D5EF6 /* AFURLConnectionOperation.m */,
+				EC9D74251A726827008D5EF6 /* AFURLRequestSerialization.h */,
+				EC9D74261A726827008D5EF6 /* AFURLRequestSerialization.m */,
+				EC9D74271A726827008D5EF6 /* AFURLResponseSerialization.h */,
+				EC9D74281A726827008D5EF6 /* AFURLResponseSerialization.m */,
+				EC9D74291A726827008D5EF6 /* AFURLSessionManager.h */,
+				EC9D742A1A726827008D5EF6 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		ECB779931A41D68200A096C4 = {
+			isa = PBXGroup;
+			children = (
+				ECB7799E1A41D68200A096C4 /* Quizzy */,
+				ECB779BB1A41D68200A096C4 /* QuizzyTests */,
+				ECB7799D1A41D68200A096C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECB7799D1A41D68200A096C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7799C1A41D68200A096C4 /* Quizzy.app */,
+				ECB779B81A41D68200A096C4 /* QuizzyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECB7799E1A41D68200A096C4 /* Quizzy */ = {
+			isa = PBXGroup;
+			children = (
+				EC9D74171A726827008D5EF6 /* AFNetworking */,
+				ECB779A31A41D68200A096C4 /* AppDelegate.h */,
+				ECB779A41A41D68200A096C4 /* AppDelegate.m */,
+				ECB779A91A41D68200A096C4 /* ViewController.h */,
+				ECB779AA1A41D68200A096C4 /* ViewController.m */,
+				DA5675331A69BA1800E2CA05 /* Question.h */,
+				DA5675341A69BA1800E2CA05 /* Question.m */,
+				ECB779AC1A41D68200A096C4 /* Main.storyboard */,
+				ECB779AF1A41D68200A096C4 /* Images.xcassets */,
+				ECB779B11A41D68200A096C4 /* LaunchScreen.xib */,
+				ECB779A61A41D68200A096C4 /* Quizzy.xcdatamodeld */,
+				ECB7799F1A41D68200A096C4 /* Supporting Files */,
+				A07AE6D21A65D07800989818 /* Model.h */,
+				A07AE6D31A65D07800989818 /* Model.m */,
+				EC9D74141A726785008D5EF6 /* Reachability.h */,
+				EC9D74151A726785008D5EF6 /* Reachability.m */,
+				A0CA7C101A686B4B005D5FDA /* GameViewController.h */,
+				A0CA7C111A686B4B005D5FDA /* GameViewController.m */,
+				A0CAF2C41A689381006E78A7 /* ScoresViewController.h */,
+				A0CAF2C51A689381006E78A7 /* ScoresViewController.m */,
+			);
+			path = Quizzy;
+			sourceTree = "<group>";
+		};
+		ECB7799F1A41D68200A096C4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECB779A01A41D68200A096C4 /* Info.plist */,
+				ECB779A11A41D68200A096C4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECB779BB1A41D68200A096C4 /* QuizzyTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECB779BE1A41D68200A096C4 /* QuizzyTests.m */,
+				ECB779BC1A41D68200A096C4 /* Supporting Files */,
+			);
+			path = QuizzyTests;
+			sourceTree = "<group>";
+		};
+		ECB779BC1A41D68200A096C4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECB779BD1A41D68200A096C4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECB7799B1A41D68200A096C4 /* Quizzy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECB779C21A41D68200A096C4 /* Build configuration list for PBXNativeTarget "Quizzy" */;
+			buildPhases = (
+				ECB779981A41D68200A096C4 /* Sources */,
+				ECB779991A41D68200A096C4 /* Frameworks */,
+				ECB7799A1A41D68200A096C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Quizzy;
+			productName = Quizzy;
+			productReference = ECB7799C1A41D68200A096C4 /* Quizzy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECB779B71A41D68200A096C4 /* QuizzyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECB779C51A41D68200A096C4 /* Build configuration list for PBXNativeTarget "QuizzyTests" */;
+			buildPhases = (
+				ECB779B41A41D68200A096C4 /* Sources */,
+				ECB779B51A41D68200A096C4 /* Frameworks */,
+				ECB779B61A41D68200A096C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECB779BA1A41D68200A096C4 /* PBXTargetDependency */,
+			);
+			name = QuizzyTests;
+			productName = QuizzyTests;
+			productReference = ECB779B81A41D68200A096C4 /* QuizzyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECB779941A41D68200A096C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = GSL;
+				TargetAttributes = {
+					ECB7799B1A41D68200A096C4 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					ECB779B71A41D68200A096C4 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = ECB7799B1A41D68200A096C4;
+					};
+				};
+			};
+			buildConfigurationList = ECB779971A41D68200A096C4 /* Build configuration list for PBXProject "Quizzy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECB779931A41D68200A096C4;
+			productRefGroup = ECB7799D1A41D68200A096C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECB7799B1A41D68200A096C4 /* Quizzy */,
+				ECB779B71A41D68200A096C4 /* QuizzyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECB7799A1A41D68200A096C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECB779AE1A41D68200A096C4 /* Main.storyboard in Resources */,
+				ECB779B31A41D68200A096C4 /* LaunchScreen.xib in Resources */,
+				ECB779B01A41D68200A096C4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB779B61A41D68200A096C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECB779981A41D68200A096C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC9D742F1A726827008D5EF6 /* AFSecurityPolicy.m in Sources */,
+				ECB779A51A41D68200A096C4 /* AppDelegate.m in Sources */,
+				EC9D742E1A726827008D5EF6 /* AFNetworkReachabilityManager.m in Sources */,
+				ECB779A21A41D68200A096C4 /* main.m in Sources */,
+				EC9D74301A726827008D5EF6 /* AFURLConnectionOperation.m in Sources */,
+				EC9D742B1A726827008D5EF6 /* AFHTTPRequestOperation.m in Sources */,
+				EC9D742D1A726827008D5EF6 /* AFHTTPSessionManager.m in Sources */,
+				EC9D74311A726827008D5EF6 /* AFURLRequestSerialization.m in Sources */,
+				A0CA7C121A686B4B005D5FDA /* GameViewController.m in Sources */,
+				EC9D74331A726827008D5EF6 /* AFURLSessionManager.m in Sources */,
+				A0CAF2C61A689381006E78A7 /* ScoresViewController.m in Sources */,
+				EC9D742C1A726827008D5EF6 /* AFHTTPRequestOperationManager.m in Sources */,
+				ECB779AB1A41D68200A096C4 /* ViewController.m in Sources */,
+				EC9D74321A726827008D5EF6 /* AFURLResponseSerialization.m in Sources */,
+				DA5675351A69BA1800E2CA05 /* Question.m in Sources */,
+				A07AE6D41A65D07800989818 /* Model.m in Sources */,
+				EC9D74161A726785008D5EF6 /* Reachability.m in Sources */,
+				ECB779A81A41D68200A096C4 /* Quizzy.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB779B41A41D68200A096C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECB779BF1A41D68200A096C4 /* QuizzyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECB779BA1A41D68200A096C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECB7799B1A41D68200A096C4 /* Quizzy */;
+			targetProxy = ECB779B91A41D68200A096C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECB779AC1A41D68200A096C4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECB779AD1A41D68200A096C4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECB779B11A41D68200A096C4 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECB779B21A41D68200A096C4 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECB779C01A41D68200A096C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ECB779C11A41D68200A096C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECB779C31A41D68200A096C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Quizzy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ECB779C41A41D68200A096C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Quizzy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		ECB779C61A41D68200A096C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QuizzyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quizzy.app/Quizzy";
+			};
+			name = Debug;
+		};
+		ECB779C71A41D68200A096C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QuizzyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quizzy.app/Quizzy";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECB779971A41D68200A096C4 /* Build configuration list for PBXProject "Quizzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECB779C01A41D68200A096C4 /* Debug */,
+				ECB779C11A41D68200A096C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECB779C21A41D68200A096C4 /* Build configuration list for PBXNativeTarget "Quizzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECB779C31A41D68200A096C4 /* Debug */,
+				ECB779C41A41D68200A096C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECB779C51A41D68200A096C4 /* Build configuration list for PBXNativeTarget "QuizzyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECB779C61A41D68200A096C4 /* Debug */,
+				ECB779C71A41D68200A096C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ECB779A61A41D68200A096C4 /* Quizzy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ECB779A71A41D68200A096C4 /* Quizzy.xcdatamodel */,
+			);
+			currentVersion = ECB779A71A41D68200A096C4 /* Quizzy.xcdatamodel */;
+			path = Quizzy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ECB779941A41D68200A096C4 /* Project object */;
+}

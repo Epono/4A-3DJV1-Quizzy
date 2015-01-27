@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="HistoryScore" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="playerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Questions" syncable="YES">
+        <attribute name="correctAnswer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="questionLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wrongAnswer1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wrongAnswer2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wrongAnswer3" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HistoryScore" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Questions" positionX="-63" positionY="9" width="128" height="118"/>
+    </elements>
+</model>
