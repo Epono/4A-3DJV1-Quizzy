@@ -41,7 +41,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     _gameViewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
     //Initialisation de l'interface
-    _monLabel.text=@"Quizzy";
+    _gameTitle.text=@"Quizzy";
     
     NSArray *tableauDeCheminIphone = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cheminDuRepertoireDocument = [tableauDeCheminIphone objectAtIndex:0];

@@ -10,6 +10,6 @@
 #import "GameViewController.h"
 @interface ViewController : UIViewController
 
-@property IBOutlet UILabel * monLabel;
+@property(nonatomic, retain) IBOutlet UILabel *gameTitle;
 @property(nonatomic, retain) GameViewController *gameViewController;
 @end

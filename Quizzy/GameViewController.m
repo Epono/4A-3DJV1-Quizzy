@@ -38,8 +38,36 @@ int currentQuestionsCount;
     [_button4 setTitle: @"D) Réponse D" forState: UIControlStateNormal];
     /**************************************************************************************/
     
+    _button1.tag = 0;
+    [_button1 addTarget:self
+                 action:@selector(answerQuestionWithAnswer:)
+       forControlEvents:UIControlEventTouchUpInside];
+    
+    _button2.tag = 1;
+    [_button2 addTarget:self
+                 action:@selector(answerQuestionWithAnswer:)
+       forControlEvents:UIControlEventTouchUpInside];
+
+    _button3.tag = 2;
+    [_button3 addTarget:self
+                 action:@selector(answerQuestionWithAnswer:)
+       forControlEvents:UIControlEventTouchUpInside];
+    
+    _button4.tag = 3;
+    [_button4 addTarget:self
+                 action:@selector(answerQuestionWithAnswer:)
+       forControlEvents:UIControlEventTouchUpInside];
+    
     _titleLabel.text = @"Question 1 :";
     _progressLabel.text = @"Il reste 180 secondes !";
+    
+    [_giveUpButton addTarget:self
+                      action:@selector(giveUp)
+            forControlEvents:UIControlEventTouchUpInside];
+    
+    [_skipButton addTarget:self
+                    action:@selector(skipQuestion)
+          forControlEvents:UIControlEventTouchUpInside];
     
     [self startGame];
 }
@@ -85,7 +113,12 @@ int currentQuestionsCount;
 }
 
 // A appeller en fournissant l'id de la question et de la réponse, gère le score(affiche un message si la réponse est bonne ou pas ?)
--(void) answerQuestionWithAnswer:(int)answerId {
+-(void) answerQuestionWithAnswer:(id)sender {
+     UIButton *clicked = (UIButton *) sender;
+    
+    int answerId = (int) clicked.tag;
+    NSLog(@"reponse choisie %d", answerId);
+    
     // Indique si la réposne est bonne ou laquelle est la bonne
     
     //Maj du score et affichage d'un message si réponse bonne/pas bonne
@@ -124,6 +157,26 @@ int currentQuestionsCount;
     [_button2 setTitle: [@"B) " stringByAppendingString:answerB] forState: UIControlStateNormal];
     [_button3 setTitle: [@"C) " stringByAppendingString:answerC] forState: UIControlStateNormal];
     [_button4 setTitle: [@"D) " stringByAppendingString:answerD] forState: UIControlStateNormal];
+}
+
+// Passe la question courante (malus ?) affiche la question suivante
+-(void) skipQuestion {
+    // Eventuellement, calculer un malus au score
+    
+    currentQuestionsCount++;
+    [self displayNextQuestion];
+}
+
+// Abandon
+-(void)giveUp {
+    // Eventuellement, demander confirmation
+    
+    // Arreter tout (timers, etc)
+    [progressTimer invalidate];
+    
+    // Sauvegarder score
+    
+    // Retour au menu principal
 }
 
 /*
