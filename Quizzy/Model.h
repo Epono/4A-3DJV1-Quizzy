@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameViewController.h"
 
 @interface Model : NSObject
 
+-(BOOL)getQuestion;
 -(BOOL)setQuestionInCoreData:(NSString *)questionFlux;
-//-(void)connexion;
-//-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
-//-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
-//-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+-(BOOL)isConnected;
+-(BOOL)setConnexion;
+@property(nonatomic, retain) GameViewController *gameViewController;
+@property IBOutlet UILabel * monLabel;
 
 @end

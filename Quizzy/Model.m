@@ -6,104 +6,102 @@
 //  Copyright (c) 2015 GSL. All rights reserved.
 //
 
+
 #import "Model.h"
 #import "AppDelegate.h"
+#import "Reachability.h"
+#import "AFNetworking.h"
 
 @interface Model ()
 //@property (nonatomic, strong) NSMutableString *jsonQuestions;
+@property AppDelegate * myAppDelegate;
+@property NSUInteger monId;
+
 @end
 
 @implementation Model
 
-/*
- -(void)connexion
+-(BOOL)isConnected
 {
-self.jsonQuestions = [[NSMutableString alloc] initWithUTF8String:""];
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.parse.com/1/functions/Quizzy"]];
-request.HTTPMethod = @"POST";
-[request setValue:@"UVTVIdLgjILqOhCY2yiq0p2eKj8W7ZyNJcKulXTq" forHTTPHeaderField:@"X-Parse-Application-Id"];
-[request setValue:@"a0egq79FWFd2orj7lcj4gkTfQvxcpoLUhY6kNREY" forHTTPHeaderField:@"X-Parse-REST-API-Key"];
-[request setValue:@" application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-[[NSURLConnection alloc] initWithRequest:request delegate:self];
-// Do any additional setup after loading the view, typically from a nib.
+    Reachability *reachability = [Reachability reachabilityWithHostName:@"www.ipcrea.com"];
+    NetworkStatus remoteStatus = [reachability currentReachabilityStatus];
+    
+    if(remoteStatus == NotReachable)
+        return FALSE;
+    
+    if(remoteStatus == ReachableViaWWAN)
+        return TRUE;
+    
+    if(remoteStatus == ReachableViaWiFi)
+        return TRUE;
+    
+    return FALSE;
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"didReceiveResponse");
-    self.jsonQuestions = [[NSMutableString alloc] initWithUTF8String:""];
-}
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"Succeeded! Received %lu bytes of data to append",(unsigned long)[data length]);
-    NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(newStr);
-    [self.jsonQuestions appendString:newStr];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+-(BOOL)setConnexion
+{
+    BOOL connexionResult = false;
     
-    NSLog(@"connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.jsonQuestions length]);
+    _gameViewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
+    //Initialisation de l'interface
+    _monLabel.text=@"Quizzy";
     
-    // convert to JSON
-    NSError *myError = nil;
-    NSLog(@"BeforeJSON");
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:[self.jsonQuestions dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:&myError];
+    NSArray *tableauDeCheminIphone = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cheminDuRepertoireDocument = [tableauDeCheminIphone objectAtIndex:0];
+    NSString *cheminGlobal = [cheminDuRepertoireDocument stringByAppendingString:@"/questions.json"];
     
-    NSLog(@"AfterJSON");
-    
-    // show all values
-    for(id key in res) {
+    if([self isConnected])
+    {
+        NSLog(@"connecte");
+        connexionResult = true;
+        dispatch_queue_t queue = dispatch_queue_create("queue asynchrone", NULL);
+        dispatch_async(queue, ^{
+            NSURL *url = [NSURL URLWithString:@"http://195.154.117.238/battlequiz/flux.php?action=quiz"];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            [data writeToFile:cheminGlobal atomically:YES];
+        });
         
-        id value = [res objectForKey:key];
-        
-        NSString *keyAsString = (NSString *)key;
-        NSString *valueAsString = (NSString *)value;
-        
-        
-        NSLog(@"key: %@", keyAsString);
-        NSLog(@"value: %@", valueAsString);
-        
-        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:@"http://195.154.117.238/battlequiz/flux.php?action=quiz" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSMutableDictionary *dict = (NSMutableDictionary *)responseObject;
+            
+            _gameViewController.questionsArray = [dict objectForKey:@"questions"];
+            NSLog(@"%@", _gameViewController.questionsArray);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
     }
-    _s1.text = [[[res objectForKey:@"result"]objectAtIndex:0]objectForKey:@"question"];
-    // extract specific value...
-    NSArray *results = [res objectForKey:@"results"];
-    
-    for (NSDictionary *result in results) {
-        NSString *icon = [result objectForKey:@"icon"];
-        NSLog(@"icon: %@", icon);
-        
-        
+    else
+    {
+        NSLog(@"non connecte");
+        NSError *error;
+        NSString *jsonString = [NSString stringWithContentsOfFile:cheminGlobal encoding:NSUTF8StringEncoding error:&error];
+        NSLog(@"%@", jsonString);
     }
-    nombreQuestion = (NSInteger) [[res objectForKey:@"result"] count];
-    
+    return connexionResult;
 }
-*/
-
 
 -(BOOL)getQuestion
 {
+    
     AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
     NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
-    NSEntityDescription * newQuestion = [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
+    NSEntityDescription * newQuestion =
+    [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
     NSFetchRequest * request = [[NSFetchRequest alloc]init];
     [request setEntity:newQuestion];
     
-    NSString * monIdDeTest = 0;
+    NSString * monIdDeTest = @"0";
     
-    NSPredicate * query = [NSPredicate predicateWithFormat:@"id = %", monIdDeTest];
+    NSPredicate * query = [NSPredicate predicateWithFormat:@"id = %@", monIdDeTest];
     [request setPredicate:query];
     NSError * error;
     NSArray * tableauResult = [context executeFetchRequest:request error:&error];
     if([tableauResult count]>0)
     {
-        NSManagedObjectContext * monObjetTrouve = [tableauResult objectAtIndex:0];
+        NSManagedObjectContext * monObjetTrouve = [tableauResult objectAtIndex:1];
         NSLog(@"La question est : %@ ",[monObjetTrouve valueForKey:@"questionLabel"]);
         NSLog(@"Réponse 1 : %@", [monObjetTrouve valueForKey:@"correctAnswer"]);
         NSLog(@"Réponse 2 : %@", [monObjetTrouve valueForKey:@"wrongAnswer1"]);
@@ -120,7 +118,20 @@ request.HTTPMethod = @"POST";
 
 -(BOOL)setQuestionInCoreData:(NSString *)questionFlux
 {
+    NSString  * _monIdString;
+    // int i = 0;
+    // if(i == 0)
+    // {
+    //     _monId = 0;
+    // }
+    // i=i+1;
     
+    
+    
+    // _monId= _monId +1;
+    //_monIdString = _monId  ;
+    //  [_monIdString integerValue];
+    //  _monIdString = [_monIdString substringFromIndex:_monId];
     NSString * _questionLabel;
     NSString * _correctAnswer;
     NSString * _wrongAnswer1;
@@ -131,30 +142,43 @@ request.HTTPMethod = @"POST";
     NSArray * parsedFlux = [questionFlux componentsSeparatedByString:@";"];
     
     _questionLabel = [parsedFlux objectAtIndex:0 ];
+    _correctAnswer = [parsedFlux objectAtIndex:1];
+    _wrongAnswer1 = [parsedFlux objectAtIndex:2];
+    _wrongAnswer2 = [parsedFlux objectAtIndex:3];
+    _wrongAnswer3 = [parsedFlux objectAtIndex:4];
+    _monIdString=@"0";
+    
+    // Faire l'assignation des objets du tableau en mes NSString
     NSLog(@"%@",_questionLabel);
+    NSLog(@"%@",_correctAnswer);
+    NSLog(@"%@",_wrongAnswer1);
+    NSLog(@"%@",_wrongAnswer2);
+    NSLog(@"%@",_wrongAnswer3);
+    NSLog(@"%@",_monIdString);
     
     
     
-    
+    //_monIdString=@"1";
     
     
     //Sauvegarde dans le coreData
     
     AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
     
-    NSManagedObjectContext * context = [myAppDelegate managedObjectContext ];
+    NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
     NSManagedObject * newQuestion;
     
-        newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Questions" inManagedObjectContext:context];
+    newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Questions" inManagedObjectContext:context];
     
-        [newQuestion setValue:_questionLabel forKey:@"questionLabel"];
-        [newQuestion setValue:_correctAnswer forKey:@"correctAnswer"];
-        [newQuestion setValue:_wrongAnswer1 forKey:@"wrongAnswer1"];
-        [newQuestion setValue:_wrongAnswer2 forKey:@"wrongAnswer2"];
-        [newQuestion setValue:_wrongAnswer3 forKey:@"wrongAnswer3"];
-        
-        NSError * error;
-        [context save:&error];
+    [newQuestion setValue:_questionLabel forKey:@"questionLabel"];
+    [newQuestion setValue:_correctAnswer forKey:@"correctAnswer"];
+    [newQuestion setValue:_wrongAnswer1 forKey:@"wrongAnswer1"];
+    [newQuestion setValue:_wrongAnswer2 forKey:@"wrongAnswer2"];
+    [newQuestion setValue:_wrongAnswer3 forKey:@"wrongAnswer3"];
+    [newQuestion setValue:_monIdString forKey:@"id" ];
+    
+    NSError * error;
+    [context save:&error];
     
     return true;
 }
