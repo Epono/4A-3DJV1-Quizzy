@@ -26,4 +26,6 @@
 @property(weak, nonatomic) IBOutlet UIButton *giveUpButton;
 @property(weak, nonatomic) IBOutlet UIButton *skipButton;
 
+@property(weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
 @end

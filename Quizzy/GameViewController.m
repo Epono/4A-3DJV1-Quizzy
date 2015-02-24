@@ -62,6 +62,8 @@ int currentCorrectAnswerIndex;
                     action:@selector(skipQuestion)
           forControlEvents:UIControlEventTouchUpInside];
     
+    _scoreLabel.text = @"Score : 0";
+    
     [self startGame];
 }
 
@@ -112,11 +114,11 @@ int currentCorrectAnswerIndex;
         //TODO: Afficher un ptit bandeau pour dire que la réponse est la bonne
         NSLog(@"Bonne réponse !");
         score++;
+        _scoreLabel.text = [@"Score : " stringByAppendingString:[NSString stringWithFormat:@"%d", score]];
     }
     else {
         //TODO: Afficher un ptit bandeau pour dire que la réponse est fausse, et indiquer la bonne
         NSLog(@"Mauvaise réponse !");
-        score--;
     }
     
     currentQuestionsCount++;
