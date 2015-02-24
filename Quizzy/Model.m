@@ -60,15 +60,40 @@
             NSURL *url = [NSURL URLWithString:@"http://195.154.117.238/battlequiz/flux.php?action=quiz"];
             NSData *data = [NSData dataWithContentsOfURL:url];
             [data writeToFile:cheminGlobal atomically:YES];
+            //Sert a quoi ?
         });
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:@"http://195.154.117.238/battlequiz/flux.php?action=quiz" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
-            NSMutableDictionary *dict = (NSMutableDictionary *)responseObject;
+            NSMutableDictionary *jsonResponse = (NSMutableDictionary *)responseObject;
+            NSMutableArray *questions = (NSMutableArray *)[jsonResponse objectForKey:@"questions"];
             
-            _gameViewController.questionsArray = [dict objectForKey:@"questions"];
-            NSLog(@"%@", _gameViewController.questionsArray);
+            _gameViewController.questionsArray = questions;
+            //NSLog(@"%@", questions);
+            
+            
+            /*
+            for (NSMutableDictionary *question in questions) {
+                NSLog(@"Q: %@", [question objectForKey:@"text"]);
+                NSMutableArray* answers = [question objectForKey:@"answers"];
+                for (NSMutableDictionary *answer in answers) {
+                    int i = (int)[answer objectForKey:@"correct"];
+                    if(i == 19) {
+                        NSLog(@"RV: %@", [answer objectForKey:@"text"]);
+                    } else {
+                        NSLog(@"RF: %@", [answer objectForKey:@"text"]);
+                    }
+                }
+            }
+            */
+           
+
+            
+            for (NSMutableDictionary *question in questions) {
+                [self setQuestionInCoreData:question];
+                //[self getQuestion];
+            }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -88,8 +113,7 @@
     
     AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
     NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
-    NSEntityDescription * newQuestion =
-    [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
+    NSEntityDescription * newQuestion = [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
     NSFetchRequest * request = [[NSFetchRequest alloc]init];
     [request setEntity:newQuestion];
     
@@ -116,8 +140,45 @@
     return true;
 }
 
--(BOOL)setQuestionInCoreData:(NSString *)questionFlux
+-(BOOL)setQuestionInCoreData:(NSMutableDictionary *)question
 {
+    //Sauvegarde dans le coreData
+    
+    AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
+    
+    NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
+    NSManagedObject * newQuestion;
+    
+    newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Questions" inManagedObjectContext:context];
+    
+    //[newQuestion setValue:@"0" forKey:@"customId"];
+
+    //NSLog(@"Q: %@", [question objectForKey:@"text"]);
+    [newQuestion setValue:[question objectForKey:@"text"] forKey:@"questionLabel"];
+    
+    NSMutableArray* answers = [question objectForKey:@"answers"];
+    int j = 1;
+    
+    for (NSMutableDictionary *answer in answers) {
+        int i = (int)[answer objectForKey:@"correct"];
+        if(i == 19) {
+            [newQuestion setValue:[answer objectForKey:@"text"] forKey:@"correctAnswer"];
+            //NSLog(@"RV: %@", [answer objectForKey:@"text"]);
+        } else {
+            [newQuestion setValue:[answer objectForKey:@"text"] forKey:[@"wrongAnswer" stringByAppendingString:[NSString stringWithFormat:@"%d", j]]];
+            j++;
+            //NSLog(@"RF: %@", [answer objectForKey:@"text"]);
+        }
+    }
+    
+    NSError * error;
+    [context save:&error];
+    
+    return true;
+
+    /*
+    NSDictionary *question;
+    
     NSString  * _monIdString;
     // int i = 0;
     // if(i == 0)
@@ -179,8 +240,7 @@
     
     NSError * error;
     [context save:&error];
-    
-    return true;
+    */
 }
 
 

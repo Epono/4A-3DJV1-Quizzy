@@ -12,7 +12,7 @@
 @interface Model : NSObject
 
 -(BOOL)getQuestion;
--(BOOL)setQuestionInCoreData:(NSString *)questionFlux;
+-(BOOL)setQuestionInCoreData:(NSMutableDictionary *)question;
 -(BOOL)isConnected;
 -(BOOL)setConnexion;
 @property(nonatomic, retain) GameViewController *gameViewController;
