@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "GameViewController.h"
+#import "QuestionManagedObject.h"
+#import "Question.h"
 
 @interface Model : NSObject
 
--(BOOL)getQuestion;
+-(Question*)getQuestion;
 -(BOOL)setQuestionInCoreData:(NSMutableDictionary *)question;
 -(BOOL)isConnected;
 -(BOOL)setConnexion;

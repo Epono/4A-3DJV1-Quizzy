@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "Reachability.h"
 #import "AFNetworking.h"
+#import "QuestionManagedObject.h"
+#import "Question.h"
 
 @interface Model ()
 //@property (nonatomic, strong) NSMutableString *jsonQuestions;
@@ -92,8 +94,9 @@
             
             for (NSMutableDictionary *question in questions) {
                 [self setQuestionInCoreData:question];
-                //[self getQuestion];
             }
+            //Question* q = [self getQuestion];
+            //NSLog(@"%@", q.description);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -108,11 +111,38 @@
     return connexionResult;
 }
 
--(BOOL)getQuestion
+-(Question*)getQuestion
 {
-    
     AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
     NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
+    
+    // get count of entities
+    NSFetchRequest *myRequest = [[NSFetchRequest alloc] init];
+    [myRequest setEntity: [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context]];
+    NSError *error = nil;
+    NSUInteger myEntityCount = [context countForFetchRequest:myRequest error:&error];
+    
+    //
+    // add another fetch request that fetches all entities for myEntityName -- you fill in the details
+    // if you don't trigger faults or access properties this should not be too expensive
+    //
+    NSFetchRequest* allRequest = [[NSFetchRequest alloc]init];
+    [allRequest setEntity: [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context]];
+    [allRequest setPredicate:nil];
+    [allRequest setReturnsObjectsAsFaults:NO];
+    NSError * allRequestError;
+    NSArray *myEntities = [context executeFetchRequest:allRequest error:&allRequestError];
+    
+    //
+    // sample with replacement, i.e. you may get duplicates
+    //
+    int randomNumber = arc4random() % myEntityCount;
+    QuestionManagedObject* questionManagedObjectRandom = [myEntities objectAtIndex:randomNumber];
+    Question* questionRandom = [[Question alloc] initWithQuestionManagedObject:questionManagedObjectRandom];
+    return questionRandom;
+    
+    
+    /*
     NSEntityDescription * newQuestion = [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
     NSFetchRequest * request = [[NSFetchRequest alloc]init];
     [request setEntity:newQuestion];
@@ -135,9 +165,9 @@
     else
     {
         NSLog(@"Pas de questions");
-    }
+    }*/
     
-    return true;
+    //return nil;
 }
 
 -(BOOL)setQuestionInCoreData:(NSMutableDictionary *)question
@@ -151,8 +181,6 @@
     
     newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Questions" inManagedObjectContext:context];
     
-    //[newQuestion setValue:@"0" forKey:@"customId"];
-
     //NSLog(@"Q: %@", [question objectForKey:@"text"]);
     [newQuestion setValue:[question objectForKey:@"text"] forKey:@"questionLabel"];
     

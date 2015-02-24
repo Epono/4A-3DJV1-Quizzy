@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "Model.h"
 #import <CoreData/CoreData.h>
-#import "Question.h"
+#import "QuestionManagedObject.h"
 #import "Reachability.h"
 #import "AFNetworking.h"
 

@@ -8,10 +8,15 @@
 
 #import "GameViewController.h"
 #import "Model.h"
+//va degager
+#import "AppDelegate.h"
 
 @interface GameViewController ()
 
 @property(nonatomic)Model * monModele;
+
+//va degager
+@property AppDelegate * myAppDelegate;
 
 @end
 
@@ -21,22 +26,10 @@ float timeRemaining;
 NSTimer* progressTimer;
 int score;
 int currentQuestionsCount;
+int currentCorrectAnswerIndex;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"Arrivée sur l'écran des questions !");
-    
-    // Do any additional setup after loading the view.
-    
-    /********************************** Ca va degager *************************************/
-    _questionLabel.text = @"Quelle est la couleur du cheval blanc de Henry IV ?";
-    
-    [_button1 setTitle: @"A) Blanc" forState: UIControlStateNormal];
-    [_button2 setTitle: @"B) Chaussette" forState: UIControlStateNormal];
-    [_button3 setTitle: @"C) 42" forState: UIControlStateNormal];
-    [_button4 setTitle: @"D) Réponse D" forState: UIControlStateNormal];
-    /**************************************************************************************/
     
     _button1.tag = 0;
     [_button1 addTarget:self
@@ -79,7 +72,7 @@ int currentQuestionsCount;
 
 -(void)startGame {
     // Initialisation du timer de jeu
-    timeRemaining = 1;          // La valeur max d'une UIProgressView c'est 1
+    timeRemaining = 1;
     
     progressTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1f
                                                      target: self
@@ -90,18 +83,14 @@ int currentQuestionsCount;
     currentQuestionsCount = 1;
     score = 0;
     
-    
-    //Récupération des questions
-    // Soit dans le coreData si y'en a plein, soit en réseau si y'en a plus trop
-    
-    // Affiche
+    [self displayNextQuestion];
 }
 
 // Update le timer de temps restant
 -(void) updateTimer {
     if(timeRemaining <= 0) {
         [progressTimer invalidate];
-        // Fin la partie, afficher le score et renvoyer au menu principal
+        //TODO: Fin la partie, afficher le score et renvoyer au menu principal
     }
     else {
         timeRemaining -= ((float)1/(float)180);
@@ -117,41 +106,77 @@ int currentQuestionsCount;
      UIButton *clicked = (UIButton *) sender;
     
     int answerId = (int) clicked.tag;
-    NSLog(@"reponse choisie %d", answerId);
-    
-    // Indique si la réposne est bonne ou laquelle est la bonne
     
     //Maj du score et affichage d'un message si réponse bonne/pas bonne
-    if(answerId == 0) {
-        // Afficher un ptit bandeau pour dire que la réponse est la bonne
+    if(answerId == currentCorrectAnswerIndex) {
+        //TODO: Afficher un ptit bandeau pour dire que la réponse est la bonne
+        NSLog(@"Bonne réponse !");
         score++;
     }
     else {
-        // Afficher un ptit bandeau pour dire que la réponse est fausse, et indiquer la bonne
+        //TODO: Afficher un ptit bandeau pour dire que la réponse est fausse, et indiquer la bonne
+        NSLog(@"Mauvaise réponse !");
         score--;
     }
     
     currentQuestionsCount++;
     
-    // Affiche question suivante
     [self displayNextQuestion];
 }
 
 // A appeller pour afficher la question suivante  (après avoir répondu à une question)
 -(void) displayNextQuestion {
-    // Va chercher une réponse aléatoirement et l'affiche
-    
+    Question* question;
     /********************************** Recuperer les bonnes valeurs **********************/
-    NSString* text = @"Il est quelle heure ?";
-    NSString* answerA = @"gjdg";
-    NSString* answerB = @"gjdg";
-    NSString* answerC = @"gjdg";
-    NSString* answerD = @"gjdg";
+    question = [self getQuestion];
     /**************************************************************************************/
+    
+    // Recuperer une question
+    // question = [model getQuestion];
+    
+    //Mélanger les réponses
+    int randomNumber = arc4random() % 4; // 0, 1, 2, 3
+    currentCorrectAnswerIndex = randomNumber;
+    
+    NSString* answerA;
+    NSString* answerB;
+    NSString* answerC;
+    NSString* answerD;
+    
+    switch (randomNumber) {
+        case 0:
+            answerA = question.correctAnswer;
+            
+            answerB = question.wrongAnswer1;
+            answerC = question.wrongAnswer2;
+            answerD = question.wrongAnswer3;
+            break;
+        case 1:
+            answerB = question.correctAnswer;
+            
+            answerA = question.wrongAnswer1;
+            answerC = question.wrongAnswer2;
+            answerD = question.wrongAnswer3;
+            break;
+        case 2:
+            answerC = question.correctAnswer;
+            
+            answerA = question.wrongAnswer1;
+            answerB = question.wrongAnswer2;
+            answerD = question.wrongAnswer3;
+            break;
+        case 3:
+            answerD = question.correctAnswer;
+            
+            answerA = question.wrongAnswer1;
+            answerB = question.wrongAnswer2;
+            answerC = question.wrongAnswer3;
+            break;
+    }
 
     _titleLabel.text = [[@"Question " stringByAppendingString:[NSString stringWithFormat:@"%d", currentQuestionsCount]] stringByAppendingString:@" :"];
     
-    _questionLabel.text = text;
+    _questionLabel.text = question.questionLabel;
     
     [_button1 setTitle: [@"A) " stringByAppendingString:answerA] forState: UIControlStateNormal];
     [_button2 setTitle: [@"B) " stringByAppendingString:answerB] forState: UIControlStateNormal];
@@ -162,6 +187,7 @@ int currentQuestionsCount;
 // Passe la question courante (malus ?) affiche la question suivante
 -(void) skipQuestion {
     // Eventuellement, calculer un malus au score
+    //TODO: dire "bouh"
     
     currentQuestionsCount++;
     [self displayNextQuestion];
@@ -169,15 +195,76 @@ int currentQuestionsCount;
 
 // Abandon
 -(void)giveUp {
-    // Eventuellement, demander confirmation
+    //TODO: demander confirmation
     
-    // Arreter tout (timers, etc)
+    //TODO: Arreter tout (timers, etc)
     [progressTimer invalidate];
     
-    // Sauvegarder score
+    //TODO: Sauvegarder score
     
-    // Retour au menu principal
+    //TODO: Retour au menu principal
 }
+
+/****************************************************************** Va degager, test*******************************************************************************/
+-(Question*)getQuestion
+{
+    AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
+    NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
+    
+    // get count of entities
+    NSFetchRequest *myRequest = [[NSFetchRequest alloc] init];
+    [myRequest setEntity: [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context]];
+    NSError *error = nil;
+    NSUInteger myEntityCount = [context countForFetchRequest:myRequest error:&error];
+    
+    //
+    // add another fetch request that fetches all entities for myEntityName -- you fill in the details
+    // if you don't trigger faults or access properties this should not be too expensive
+    //
+    NSFetchRequest* allRequest = [[NSFetchRequest alloc]init];
+    [allRequest setEntity: [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context]];
+    [allRequest setPredicate:nil];
+    [allRequest setReturnsObjectsAsFaults:NO];
+    NSError * allRequestError;
+    NSArray *myEntities = [context executeFetchRequest:allRequest error:&allRequestError];
+    
+    //
+    // sample with replacement, i.e. you may get duplicates
+    //
+    int randomNumber = arc4random() % myEntityCount;
+    QuestionManagedObject* questionManagedObjectRandom = [myEntities objectAtIndex:randomNumber];
+    Question* questionRandom = [[Question alloc] initWithQuestionManagedObject:questionManagedObjectRandom];
+    return questionRandom;
+    
+    
+    /*
+     NSEntityDescription * newQuestion = [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
+     NSFetchRequest * request = [[NSFetchRequest alloc]init];
+     [request setEntity:newQuestion];
+     
+     NSString * monIdDeTest = @"0";
+     
+     NSPredicate * query = [NSPredicate predicateWithFormat:@"id = %@", monIdDeTest];
+     [request setPredicate:query];
+     NSError * error;
+     NSArray * tableauResult = [context executeFetchRequest:request error:&error];
+     if([tableauResult count]>0)
+     {
+     NSManagedObjectContext * monObjetTrouve = [tableauResult objectAtIndex:1];
+     NSLog(@"La question est : %@ ",[monObjetTrouve valueForKey:@"questionLabel"]);
+     NSLog(@"Réponse 1 : %@", [monObjetTrouve valueForKey:@"correctAnswer"]);
+     NSLog(@"Réponse 2 : %@", [monObjetTrouve valueForKey:@"wrongAnswer1"]);
+     NSLog(@"Réponse 3 : %@", [monObjetTrouve valueForKey:@"wrongAnswer2"]);
+     NSLog(@"Réponse 4 : %@", [monObjetTrouve valueForKey:@"wrongAnswer3"]);
+     }
+     else
+     {
+     NSLog(@"Pas de questions");
+     }*/
+    
+    //return nil;
+}
+/************************************************************************************************************************************************************************************/
 
 /*
  #pragma mark - Navigation

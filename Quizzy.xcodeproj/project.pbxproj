@@ -10,7 +10,8 @@
 		A07AE6D41A65D07800989818 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A07AE6D31A65D07800989818 /* Model.m */; };
 		A0CA7C121A686B4B005D5FDA /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA7C111A686B4B005D5FDA /* GameViewController.m */; };
 		A0CAF2C61A689381006E78A7 /* ScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAF2C51A689381006E78A7 /* ScoresViewController.m */; };
-		DA5675351A69BA1800E2CA05 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5675341A69BA1800E2CA05 /* Question.m */; };
+		D91C33181A9C9DD60036D8CD /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = D91C33171A9C9DD60036D8CD /* Question.m */; };
+		DA5675351A69BA1800E2CA05 /* QuestionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5675341A69BA1800E2CA05 /* QuestionManagedObject.m */; };
 		EC9D74161A726785008D5EF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74151A726785008D5EF6 /* Reachability.m */; };
 		EC9D742B1A726827008D5EF6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74191A726827008D5EF6 /* AFHTTPRequestOperation.m */; };
 		EC9D742C1A726827008D5EF6 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D741B1A726827008D5EF6 /* AFHTTPRequestOperationManager.m */; };
@@ -48,8 +49,10 @@
 		A0CA7C111A686B4B005D5FDA /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		A0CAF2C41A689381006E78A7 /* ScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresViewController.h; sourceTree = "<group>"; };
 		A0CAF2C51A689381006E78A7 /* ScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoresViewController.m; sourceTree = "<group>"; };
-		DA5675331A69BA1800E2CA05 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		DA5675341A69BA1800E2CA05 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		D91C33161A9C9DD60036D8CD /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		D91C33171A9C9DD60036D8CD /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		DA5675331A69BA1800E2CA05 /* QuestionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionManagedObject.h; sourceTree = "<group>"; };
+		DA5675341A69BA1800E2CA05 /* QuestionManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionManagedObject.m; sourceTree = "<group>"; };
 		EC9D74141A726785008D5EF6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		EC9D74151A726785008D5EF6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		EC9D74181A726827008D5EF6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -157,8 +160,10 @@
 				ECB779A41A41D68200A096C4 /* AppDelegate.m */,
 				ECB779A91A41D68200A096C4 /* ViewController.h */,
 				ECB779AA1A41D68200A096C4 /* ViewController.m */,
-				DA5675331A69BA1800E2CA05 /* Question.h */,
-				DA5675341A69BA1800E2CA05 /* Question.m */,
+				DA5675331A69BA1800E2CA05 /* QuestionManagedObject.h */,
+				D91C33161A9C9DD60036D8CD /* Question.h */,
+				D91C33171A9C9DD60036D8CD /* Question.m */,
+				DA5675341A69BA1800E2CA05 /* QuestionManagedObject.m */,
 				ECB779AC1A41D68200A096C4 /* Main.storyboard */,
 				ECB779AF1A41D68200A096C4 /* Images.xcassets */,
 				ECB779B11A41D68200A096C4 /* LaunchScreen.xib */,
@@ -309,6 +314,7 @@
 				EC9D74301A726827008D5EF6 /* AFURLConnectionOperation.m in Sources */,
 				EC9D742B1A726827008D5EF6 /* AFHTTPRequestOperation.m in Sources */,
 				EC9D742D1A726827008D5EF6 /* AFHTTPSessionManager.m in Sources */,
+				D91C33181A9C9DD60036D8CD /* Question.m in Sources */,
 				EC9D74311A726827008D5EF6 /* AFURLRequestSerialization.m in Sources */,
 				A0CA7C121A686B4B005D5FDA /* GameViewController.m in Sources */,
 				EC9D74331A726827008D5EF6 /* AFURLSessionManager.m in Sources */,
@@ -316,7 +322,7 @@
 				EC9D742C1A726827008D5EF6 /* AFHTTPRequestOperationManager.m in Sources */,
 				ECB779AB1A41D68200A096C4 /* ViewController.m in Sources */,
 				EC9D74321A726827008D5EF6 /* AFURLResponseSerialization.m in Sources */,
-				DA5675351A69BA1800E2CA05 /* Question.m in Sources */,
+				DA5675351A69BA1800E2CA05 /* QuestionManagedObject.m in Sources */,
 				A07AE6D41A65D07800989818 /* Model.m in Sources */,
 				EC9D74161A726785008D5EF6 /* Reachability.m in Sources */,
 				ECB779A81A41D68200A096C4 /* Quizzy.xcdatamodeld in Sources */,
