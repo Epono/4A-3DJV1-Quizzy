@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "QuestionManagedObject.h"
 #import "Question.h"
+#import "Score.h"
 
 @interface Model ()
 //@property (nonatomic, strong) NSMutableString *jsonQuestions;
@@ -72,31 +73,14 @@
             NSMutableArray *questions = (NSMutableArray *)[jsonResponse objectForKey:@"questions"];
             
             _gameViewController.questionsArray = questions;
-            //NSLog(@"%@", questions);
-            
-            
-            /*
-            for (NSMutableDictionary *question in questions) {
-                NSLog(@"Q: %@", [question objectForKey:@"text"]);
-                NSMutableArray* answers = [question objectForKey:@"answers"];
-                for (NSMutableDictionary *answer in answers) {
-                    int i = (int)[answer objectForKey:@"correct"];
-                    if(i == 19) {
-                        NSLog(@"RV: %@", [answer objectForKey:@"text"]);
-                    } else {
-                        NSLog(@"RF: %@", [answer objectForKey:@"text"]);
-                    }
-                }
-            }
-            */
+          
            
 
             
             for (NSMutableDictionary *question in questions) {
                 [self setQuestionInCoreData:question];
             }
-            //Question* q = [self getQuestion];
-            //NSLog(@"%@", q.description);
+           
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
@@ -142,32 +126,7 @@
     return questionRandom;
     
     
-    /*
-    NSEntityDescription * newQuestion = [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
-    NSFetchRequest * request = [[NSFetchRequest alloc]init];
-    [request setEntity:newQuestion];
     
-    NSString * monIdDeTest = @"0";
-    
-    NSPredicate * query = [NSPredicate predicateWithFormat:@"id = %@", monIdDeTest];
-    [request setPredicate:query];
-    NSError * error;
-    NSArray * tableauResult = [context executeFetchRequest:request error:&error];
-    if([tableauResult count]>0)
-    {
-        NSManagedObjectContext * monObjetTrouve = [tableauResult objectAtIndex:1];
-        NSLog(@"La question est : %@ ",[monObjetTrouve valueForKey:@"questionLabel"]);
-        NSLog(@"Réponse 1 : %@", [monObjetTrouve valueForKey:@"correctAnswer"]);
-        NSLog(@"Réponse 2 : %@", [monObjetTrouve valueForKey:@"wrongAnswer1"]);
-        NSLog(@"Réponse 3 : %@", [monObjetTrouve valueForKey:@"wrongAnswer2"]);
-        NSLog(@"Réponse 4 : %@", [monObjetTrouve valueForKey:@"wrongAnswer3"]);
-    }
-    else
-    {
-        NSLog(@"Pas de questions");
-    }*/
-    
-    //return nil;
 }
 
 -(BOOL)setQuestionInCoreData:(NSMutableDictionary *)question
@@ -188,8 +147,8 @@
     int j = 1;
     
     for (NSMutableDictionary *answer in answers) {
-        int i = (int)[answer objectForKey:@"correct"];
-        if(i == 19) {
+        int i =[[answer objectForKey:@"correct"]integerValue];
+        if(i == 1) {
             [newQuestion setValue:[answer objectForKey:@"text"] forKey:@"correctAnswer"];
             //NSLog(@"RV: %@", [answer objectForKey:@"text"]);
         } else {
@@ -204,71 +163,61 @@
     
     return true;
 
-    /*
-    NSDictionary *question;
-    
-    NSString  * _monIdString;
-    // int i = 0;
-    // if(i == 0)
-    // {
-    //     _monId = 0;
-    // }
-    // i=i+1;
+    }
+
+-(BOOL)setScoreInCoreData:(NSNumber*)score
+{
+    NSDate * date = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
+    //NSLog(@"%t",);
     
     
-    
-    // _monId= _monId +1;
-    //_monIdString = _monId  ;
-    //  [_monIdString integerValue];
-    //  _monIdString = [_monIdString substringFromIndex:_monId];
-    NSString * _questionLabel;
-    NSString * _correctAnswer;
-    NSString * _wrongAnswer1;
-    NSString * _wrongAnswer2;
-    NSString * _wrongAnswer3;
-    
-    
-    NSArray * parsedFlux = [questionFlux componentsSeparatedByString:@";"];
-    
-    _questionLabel = [parsedFlux objectAtIndex:0 ];
-    _correctAnswer = [parsedFlux objectAtIndex:1];
-    _wrongAnswer1 = [parsedFlux objectAtIndex:2];
-    _wrongAnswer2 = [parsedFlux objectAtIndex:3];
-    _wrongAnswer3 = [parsedFlux objectAtIndex:4];
-    _monIdString=@"0";
-    
-    // Faire l'assignation des objets du tableau en mes NSString
-    NSLog(@"%@",_questionLabel);
-    NSLog(@"%@",_correctAnswer);
-    NSLog(@"%@",_wrongAnswer1);
-    NSLog(@"%@",_wrongAnswer2);
-    NSLog(@"%@",_wrongAnswer3);
-    NSLog(@"%@",_monIdString);
-    
-    
-    
-    //_monIdString=@"1";
-    
-    
-    //Sauvegarde dans le coreData
-    
+    NSNumber * myScore = score;
+    NSString * namePlayer = @"Lucas";
     AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
     
     NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
-    NSManagedObject * newQuestion;
+    NSManagedObject * newScore;
     
-    newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Questions" inManagedObjectContext:context];
+    newScore = [NSEntityDescription insertNewObjectForEntityForName:@"HistoryScore" inManagedObjectContext:context];
+    [newScore setValue:myScore forKey:@"score"];
+    [newScore setValue:namePlayer forKey:@"playerName" ];
+    [newScore setValue:date forKey:@"date"];
     
-    [newQuestion setValue:_questionLabel forKey:@"questionLabel"];
-    [newQuestion setValue:_correctAnswer forKey:@"correctAnswer"];
-    [newQuestion setValue:_wrongAnswer1 forKey:@"wrongAnswer1"];
-    [newQuestion setValue:_wrongAnswer2 forKey:@"wrongAnswer2"];
-    [newQuestion setValue:_wrongAnswer3 forKey:@"wrongAnswer3"];
-    [newQuestion setValue:_monIdString forKey:@"id" ];
+    return true;
+}
+
+-(NSArray *)getScore
+{
+    AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
+    NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
     
-    NSError * error;
-    [context save:&error];
-    */
+    // get count of entities
+    NSFetchRequest *myRequest = [[NSFetchRequest alloc] init];
+    [myRequest setEntity: [NSEntityDescription entityForName:@"HistoryScore" inManagedObjectContext:context]];
+    NSError *error = nil;
+    NSUInteger myEntityCount = [context countForFetchRequest:myRequest error:&error];
+    
+    //
+    // add another fetch request that fetches all entities for myEntityName -- you fill in the details
+    // if you don't trigger faults or access properties this should not be too expensive
+    //
+    NSFetchRequest* allRequest = [[NSFetchRequest alloc]init];
+    [allRequest setEntity: [NSEntityDescription entityForName:@"HistoryScore" inManagedObjectContext:context]];
+    [allRequest setPredicate:nil];
+    [allRequest setReturnsObjectsAsFaults:NO];
+    NSError * allRequestError;
+    NSArray *myEntities = [context executeFetchRequest:allRequest error:&allRequestError];
+    NSArray * myProperEntities;
+    for( int i = 0; i < myEntityCount;i++)
+    {
+        ScoreManagedObject* scoreManagedObjectList = [myEntities objectAtIndex:i];
+        Score* scoreList = [[Score alloc] initWithScoreManagedObject:scoreManagedObjectList];
+        //Faire l'ajout dans la liste
+        [myProperEntities arrayByAddingObject:scoreList];
+    
+    
+    }
+    return myProperEntities;
 }
 
 

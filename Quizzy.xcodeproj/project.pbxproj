@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A07AE6D41A65D07800989818 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A07AE6D31A65D07800989818 /* Model.m */; };
 		A0CA7C121A686B4B005D5FDA /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA7C111A686B4B005D5FDA /* GameViewController.m */; };
+		A0CAC1491A9D3C3D0058EC42 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAC1481A9D3C3D0058EC42 /* Score.m */; };
+		A0CAC14C1A9D3C5B0058EC42 /* ScoreManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAC14B1A9D3C5B0058EC42 /* ScoreManagedObject.m */; };
 		A0CAF2C61A689381006E78A7 /* ScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAF2C51A689381006E78A7 /* ScoresViewController.m */; };
 		D91C33181A9C9DD60036D8CD /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = D91C33171A9C9DD60036D8CD /* Question.m */; };
 		DA5675351A69BA1800E2CA05 /* QuestionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5675341A69BA1800E2CA05 /* QuestionManagedObject.m */; };
@@ -47,6 +49,10 @@
 		A07AE6D31A65D07800989818 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		A0CA7C101A686B4B005D5FDA /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		A0CA7C111A686B4B005D5FDA /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		A0CAC1471A9D3C3D0058EC42 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
+		A0CAC1481A9D3C3D0058EC42 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
+		A0CAC14A1A9D3C5B0058EC42 /* ScoreManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManagedObject.h; sourceTree = "<group>"; };
+		A0CAC14B1A9D3C5B0058EC42 /* ScoreManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManagedObject.m; sourceTree = "<group>"; };
 		A0CAF2C41A689381006E78A7 /* ScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresViewController.h; sourceTree = "<group>"; };
 		A0CAF2C51A689381006E78A7 /* ScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoresViewController.m; sourceTree = "<group>"; };
 		D91C33161A9C9DD60036D8CD /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -177,6 +183,10 @@
 				A0CA7C111A686B4B005D5FDA /* GameViewController.m */,
 				A0CAF2C41A689381006E78A7 /* ScoresViewController.h */,
 				A0CAF2C51A689381006E78A7 /* ScoresViewController.m */,
+				A0CAC1471A9D3C3D0058EC42 /* Score.h */,
+				A0CAC1481A9D3C3D0058EC42 /* Score.m */,
+				A0CAC14A1A9D3C5B0058EC42 /* ScoreManagedObject.h */,
+				A0CAC14B1A9D3C5B0058EC42 /* ScoreManagedObject.m */,
 			);
 			path = Quizzy;
 			sourceTree = "<group>";
@@ -309,6 +319,7 @@
 			files = (
 				EC9D742F1A726827008D5EF6 /* AFSecurityPolicy.m in Sources */,
 				ECB779A51A41D68200A096C4 /* AppDelegate.m in Sources */,
+				A0CAC1491A9D3C3D0058EC42 /* Score.m in Sources */,
 				EC9D742E1A726827008D5EF6 /* AFNetworkReachabilityManager.m in Sources */,
 				ECB779A21A41D68200A096C4 /* main.m in Sources */,
 				EC9D74301A726827008D5EF6 /* AFURLConnectionOperation.m in Sources */,
@@ -318,6 +329,7 @@
 				EC9D74311A726827008D5EF6 /* AFURLRequestSerialization.m in Sources */,
 				A0CA7C121A686B4B005D5FDA /* GameViewController.m in Sources */,
 				EC9D74331A726827008D5EF6 /* AFURLSessionManager.m in Sources */,
+				A0CAC14C1A9D3C5B0058EC42 /* ScoreManagedObject.m in Sources */,
 				A0CAF2C61A689381006E78A7 /* ScoresViewController.m in Sources */,
 				EC9D742C1A726827008D5EF6 /* AFHTTPRequestOperationManager.m in Sources */,
 				ECB779AB1A41D68200A096C4 /* ViewController.m in Sources */,

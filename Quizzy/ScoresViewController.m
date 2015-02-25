@@ -10,6 +10,8 @@
 #import "Model.h"
 @interface ScoresViewController ()
 
+@property (nonatomic) Model * model;
+
 @end
 
 @implementation ScoresViewController
@@ -20,6 +22,9 @@
     
     _scoreTitle.text = @"Score";
     _playerNameTitle.text = @"Joueur";
+    _model = [[Model alloc]init];
+    [_model getScore];
+    
 }
 
 - (void)didReceiveMemoryWarning {

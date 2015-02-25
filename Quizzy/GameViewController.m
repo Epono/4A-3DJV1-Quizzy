@@ -14,6 +14,7 @@
 @interface GameViewController ()
 
 @property(nonatomic)Model * monModele;
+@property(nonatomic)UINavigationController * navController;
 
 //va degager
 @property AppDelegate * myAppDelegate;
@@ -30,7 +31,8 @@ int currentCorrectAnswerIndex;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _monModele = [[Model alloc]init];
+
     _button1.tag = 0;
     [_button1 addTarget:self
                  action:@selector(answerQuestionWithAnswer:)
@@ -129,8 +131,9 @@ int currentCorrectAnswerIndex;
 // A appeller pour afficher la question suivante  (après avoir répondu à une question)
 -(void) displayNextQuestion {
     Question* question;
+    question = [_monModele getQuestion];
     /********************************** Recuperer les bonnes valeurs **********************/
-    question = [self getQuestion];
+   // question = [self getQuestion];
     /**************************************************************************************/
     
     // Recuperer une question
@@ -198,75 +201,49 @@ int currentCorrectAnswerIndex;
 // Abandon
 -(void)giveUp {
     //TODO: demander confirmation
-    
+  
     //TODO: Arreter tout (timers, etc)
+    NSNumber * currentScore = [NSNumber numberWithInt:score];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Quitter"
+                                                                   message:@"Etes-vous sur de vouloir quitter ?"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     [progressTimer invalidate];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Non" style:UIAlertActionStyleCancel
+                                                          handler:^(UIAlertAction * action) {
+                                                              progressTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1f
+                                                                                                               target: self
+                                                                                                             selector: @selector(updateTimer)
+                                                                                                             userInfo: nil
+                                                                                                              repeats: YES];
+                                                              
+                                                          }];
+    
+    UIAlertAction* leaveAction = [UIAlertAction actionWithTitle:@"Oui" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * actiont) {
+                                                          
+                                                              [_monModele setScoreInCoreData:currentScore];
+                                                             /* _navController showViewController:viewController sender:<#(id)#>
+                                                              - (void)navigationController:(UINavigationController *)navigationController
+                                                                      didShowViewController:(UIViewController *)viewController
+                                                                                   animated:(BOOL)animated
+                                                              */
+                                                          }];
+    
+    [alert addAction:defaultAction];
+    [alert addAction:leaveAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+                                           
+    
     
     //TODO: Sauvegarder score
     
     //TODO: Retour au menu principal
+    
 }
 
-/****************************************************************** Va degager, test*******************************************************************************/
--(Question*)getQuestion
-{
-    AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
-    NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
-    
-    // get count of entities
-    NSFetchRequest *myRequest = [[NSFetchRequest alloc] init];
-    [myRequest setEntity: [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context]];
-    NSError *error = nil;
-    NSUInteger myEntityCount = [context countForFetchRequest:myRequest error:&error];
-    
-    //
-    // add another fetch request that fetches all entities for myEntityName -- you fill in the details
-    // if you don't trigger faults or access properties this should not be too expensive
-    //
-    NSFetchRequest* allRequest = [[NSFetchRequest alloc]init];
-    [allRequest setEntity: [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context]];
-    [allRequest setPredicate:nil];
-    [allRequest setReturnsObjectsAsFaults:NO];
-    NSError * allRequestError;
-    NSArray *myEntities = [context executeFetchRequest:allRequest error:&allRequestError];
-    
-    //
-    // sample with replacement, i.e. you may get duplicates
-    //
-    int randomNumber = arc4random() % myEntityCount;
-    QuestionManagedObject* questionManagedObjectRandom = [myEntities objectAtIndex:randomNumber];
-    Question* questionRandom = [[Question alloc] initWithQuestionManagedObject:questionManagedObjectRandom];
-    return questionRandom;
-    
-    
-    /*
-     NSEntityDescription * newQuestion = [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:context];
-     NSFetchRequest * request = [[NSFetchRequest alloc]init];
-     [request setEntity:newQuestion];
-     
-     NSString * monIdDeTest = @"0";
-     
-     NSPredicate * query = [NSPredicate predicateWithFormat:@"id = %@", monIdDeTest];
-     [request setPredicate:query];
-     NSError * error;
-     NSArray * tableauResult = [context executeFetchRequest:request error:&error];
-     if([tableauResult count]>0)
-     {
-     NSManagedObjectContext * monObjetTrouve = [tableauResult objectAtIndex:1];
-     NSLog(@"La question est : %@ ",[monObjetTrouve valueForKey:@"questionLabel"]);
-     NSLog(@"Réponse 1 : %@", [monObjetTrouve valueForKey:@"correctAnswer"]);
-     NSLog(@"Réponse 2 : %@", [monObjetTrouve valueForKey:@"wrongAnswer1"]);
-     NSLog(@"Réponse 3 : %@", [monObjetTrouve valueForKey:@"wrongAnswer2"]);
-     NSLog(@"Réponse 4 : %@", [monObjetTrouve valueForKey:@"wrongAnswer3"]);
-     }
-     else
-     {
-     NSLog(@"Pas de questions");
-     }*/
-    
-    //return nil;
-}
-/************************************************************************************************************************************************************************************/
+
 
 /*
  #pragma mark - Navigation

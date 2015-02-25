@@ -15,8 +15,10 @@
 
 -(Question*)getQuestion;
 -(BOOL)setQuestionInCoreData:(NSMutableDictionary *)question;
+-(BOOL)setScoreInCoreData:(NSNumber *)score;
 -(BOOL)isConnected;
 -(BOOL)setConnexion;
+-(NSArray*)getScore;
 @property(nonatomic, retain) GameViewController *gameViewController;
 @property IBOutlet UILabel * monLabel;
 
