@@ -23,8 +23,8 @@
     _scoreTitle.text = @"Score";
     _playerNameTitle.text = @"Joueur";
     _model = [[Model alloc]init];
-    [_model getScore];
     
+    [_model getScore];
 }
 
 - (void)didReceiveMemoryWarning {
