@@ -20,7 +20,7 @@
 - (NSString *)getPlayerName;
 - (NSString *)getScore;
 - (NSString *)getDate;
-//- (NSString *)description;
+- (NSString *)description;
 
 
 @end
