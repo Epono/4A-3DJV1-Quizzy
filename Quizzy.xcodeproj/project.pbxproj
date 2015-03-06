@@ -8,10 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		A07AE6D41A65D07800989818 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A07AE6D31A65D07800989818 /* Model.m */; };
+		A0C4FD9F1AA9075B00EBCED8 /* titreQuizzy.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FD9E1AA9075B00EBCED8 /* titreQuizzy.png */; };
+		A0C4FDA31AA9080C00EBCED8 /* scores.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDA01AA9080C00EBCED8 /* scores.png */; };
+		A0C4FDA41AA9080C00EBCED8 /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDA11AA9080C00EBCED8 /* options.png */; };
+		A0C4FDA51AA9080C00EBCED8 /* jouer.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDA21AA9080C00EBCED8 /* jouer.png */; };
+		A0C4FDA81AA90BBA00EBCED8 /* retour.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDA71AA90BBA00EBCED8 /* retour.png */; };
+		A0C4FDAA1AA90C5300EBCED8 /* tableau.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDA91AA90C5300EBCED8 /* tableau.png */; };
+		A0C4FDAE1AA90E8400EBCED8 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDAB1AA90E8400EBCED8 /* 1.jpg */; };
+		A0C4FDB01AA90E8400EBCED8 /* Abandon.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDAD1AA90E8400EBCED8 /* Abandon.png */; };
+		A0C4FDB21AA90F0F00EBCED8 /* passer.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDB11AA90F0F00EBCED8 /* passer.png */; };
+		A0C4FDB71AA9120B00EBCED8 /* repD.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDB31AA9120B00EBCED8 /* repD.png */; };
+		A0C4FDB81AA9120B00EBCED8 /* repB.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDB41AA9120B00EBCED8 /* repB.png */; };
+		A0C4FDB91AA9120B00EBCED8 /* repC.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDB51AA9120B00EBCED8 /* repC.png */; };
+		A0C4FDBA1AA9120B00EBCED8 /* repA.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDB61AA9120B00EBCED8 /* repA.png */; };
+		A0C4FDBC1AA9156700EBCED8 /* boutonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4FDBB1AA9156700EBCED8 /* boutonbackground.png */; };
+		A0C583651A9F52B500E8785E /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C583641A9F52B500E8785E /* CustomCell.m */; };
 		A0CA7C121A686B4B005D5FDA /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA7C111A686B4B005D5FDA /* GameViewController.m */; };
 		A0CAC1491A9D3C3D0058EC42 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAC1481A9D3C3D0058EC42 /* Score.m */; };
 		A0CAC14C1A9D3C5B0058EC42 /* ScoreManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAC14B1A9D3C5B0058EC42 /* ScoreManagedObject.m */; };
 		A0CAF2C61A689381006E78A7 /* ScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CAF2C51A689381006E78A7 /* ScoresViewController.m */; };
+		A0DCCD241AA8D21000F2010F /* ResizeImg.png in Resources */ = {isa = PBXBuildFile; fileRef = A0DCCD231AA8D21000F2010F /* ResizeImg.png */; };
 		D91C33181A9C9DD60036D8CD /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = D91C33171A9C9DD60036D8CD /* Question.m */; };
 		DA5675351A69BA1800E2CA05 /* QuestionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5675341A69BA1800E2CA05 /* QuestionManagedObject.m */; };
 		EC9D74161A726785008D5EF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9D74151A726785008D5EF6 /* Reachability.m */; };
@@ -47,6 +63,22 @@
 /* Begin PBXFileReference section */
 		A07AE6D21A65D07800989818 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		A07AE6D31A65D07800989818 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		A0C4FD9E1AA9075B00EBCED8 /* titreQuizzy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titreQuizzy.png; sourceTree = "<group>"; };
+		A0C4FDA01AA9080C00EBCED8 /* scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scores.png; path = Quizzy/scores.png; sourceTree = "<group>"; };
+		A0C4FDA11AA9080C00EBCED8 /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = options.png; path = Quizzy/options.png; sourceTree = "<group>"; };
+		A0C4FDA21AA9080C00EBCED8 /* jouer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jouer.png; path = Quizzy/jouer.png; sourceTree = "<group>"; };
+		A0C4FDA71AA90BBA00EBCED8 /* retour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retour.png; sourceTree = "<group>"; };
+		A0C4FDA91AA90C5300EBCED8 /* tableau.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableau.png; sourceTree = "<group>"; };
+		A0C4FDAB1AA90E8400EBCED8 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = Quizzy/1.jpg; sourceTree = "<group>"; };
+		A0C4FDAD1AA90E8400EBCED8 /* Abandon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Abandon.png; path = Quizzy/Abandon.png; sourceTree = "<group>"; };
+		A0C4FDB11AA90F0F00EBCED8 /* passer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passer.png; sourceTree = "<group>"; };
+		A0C4FDB31AA9120B00EBCED8 /* repD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repD.png; sourceTree = "<group>"; };
+		A0C4FDB41AA9120B00EBCED8 /* repB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repB.png; sourceTree = "<group>"; };
+		A0C4FDB51AA9120B00EBCED8 /* repC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repC.png; sourceTree = "<group>"; };
+		A0C4FDB61AA9120B00EBCED8 /* repA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repA.png; sourceTree = "<group>"; };
+		A0C4FDBB1AA9156700EBCED8 /* boutonbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boutonbackground.png; sourceTree = "<group>"; };
+		A0C583631A9F52B500E8785E /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		A0C583641A9F52B500E8785E /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		A0CA7C101A686B4B005D5FDA /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		A0CA7C111A686B4B005D5FDA /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		A0CAC1471A9D3C3D0058EC42 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
@@ -55,6 +87,7 @@
 		A0CAC14B1A9D3C5B0058EC42 /* ScoreManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManagedObject.m; sourceTree = "<group>"; };
 		A0CAF2C41A689381006E78A7 /* ScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresViewController.h; sourceTree = "<group>"; };
 		A0CAF2C51A689381006E78A7 /* ScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoresViewController.m; sourceTree = "<group>"; };
+		A0DCCD231AA8D21000F2010F /* ResizeImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResizeImg.png; sourceTree = "<group>"; };
 		D91C33161A9C9DD60036D8CD /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		D91C33171A9C9DD60036D8CD /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		DA5675331A69BA1800E2CA05 /* QuestionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionManagedObject.h; sourceTree = "<group>"; };
@@ -114,6 +147,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0C4FDA61AA9081B00EBCED8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A0C4FDBB1AA9156700EBCED8 /* boutonbackground.png */,
+				A0C4FDB31AA9120B00EBCED8 /* repD.png */,
+				A0C4FDB41AA9120B00EBCED8 /* repB.png */,
+				A0C4FDB51AA9120B00EBCED8 /* repC.png */,
+				A0C4FDB61AA9120B00EBCED8 /* repA.png */,
+				A0C4FDB11AA90F0F00EBCED8 /* passer.png */,
+				A0C4FDA91AA90C5300EBCED8 /* tableau.png */,
+				A0C4FDAB1AA90E8400EBCED8 /* 1.jpg */,
+				A0C4FDAD1AA90E8400EBCED8 /* Abandon.png */,
+				A0C4FDA71AA90BBA00EBCED8 /* retour.png */,
+				A0C4FD9E1AA9075B00EBCED8 /* titreQuizzy.png */,
+				A0C4FDA01AA9080C00EBCED8 /* scores.png */,
+				A0C4FDA11AA9080C00EBCED8 /* options.png */,
+				A0C4FDA21AA9080C00EBCED8 /* jouer.png */,
+				A0DCCD231AA8D21000F2010F /* ResizeImg.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		EC9D74171A726827008D5EF6 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +198,7 @@
 		ECB779931A41D68200A096C4 = {
 			isa = PBXGroup;
 			children = (
+				A0C4FDA61AA9081B00EBCED8 /* Image */,
 				ECB7799E1A41D68200A096C4 /* Quizzy */,
 				ECB779BB1A41D68200A096C4 /* QuizzyTests */,
 				ECB7799D1A41D68200A096C4 /* Products */,
@@ -179,6 +235,8 @@
 				A07AE6D31A65D07800989818 /* Model.m */,
 				EC9D74141A726785008D5EF6 /* Reachability.h */,
 				EC9D74151A726785008D5EF6 /* Reachability.m */,
+				A0C583631A9F52B500E8785E /* CustomCell.h */,
+				A0C583641A9F52B500E8785E /* CustomCell.m */,
 				A0CA7C101A686B4B005D5FDA /* GameViewController.h */,
 				A0CA7C111A686B4B005D5FDA /* GameViewController.m */,
 				A0CAF2C41A689381006E78A7 /* ScoresViewController.h */,
@@ -297,9 +355,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0C4FDAE1AA90E8400EBCED8 /* 1.jpg in Resources */,
+				A0C4FDB71AA9120B00EBCED8 /* repD.png in Resources */,
+				A0C4FD9F1AA9075B00EBCED8 /* titreQuizzy.png in Resources */,
+				A0C4FDB91AA9120B00EBCED8 /* repC.png in Resources */,
+				A0C4FDB21AA90F0F00EBCED8 /* passer.png in Resources */,
+				A0C4FDBA1AA9120B00EBCED8 /* repA.png in Resources */,
 				ECB779AE1A41D68200A096C4 /* Main.storyboard in Resources */,
+				A0C4FDA51AA9080C00EBCED8 /* jouer.png in Resources */,
+				A0C4FDA41AA9080C00EBCED8 /* options.png in Resources */,
+				A0C4FDAA1AA90C5300EBCED8 /* tableau.png in Resources */,
+				A0C4FDA81AA90BBA00EBCED8 /* retour.png in Resources */,
 				ECB779B31A41D68200A096C4 /* LaunchScreen.xib in Resources */,
+				A0C4FDBC1AA9156700EBCED8 /* boutonbackground.png in Resources */,
 				ECB779B01A41D68200A096C4 /* Images.xcassets in Resources */,
+				A0C4FDA31AA9080C00EBCED8 /* scores.png in Resources */,
+				A0C4FDB81AA9120B00EBCED8 /* repB.png in Resources */,
+				A0DCCD241AA8D21000F2010F /* ResizeImg.png in Resources */,
+				A0C4FDB01AA90E8400EBCED8 /* Abandon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +392,7 @@
 			files = (
 				EC9D742F1A726827008D5EF6 /* AFSecurityPolicy.m in Sources */,
 				ECB779A51A41D68200A096C4 /* AppDelegate.m in Sources */,
+				A0C583651A9F52B500E8785E /* CustomCell.m in Sources */,
 				A0CAC1491A9D3C3D0058EC42 /* Score.m in Sources */,
 				EC9D742E1A726827008D5EF6 /* AFNetworkReachabilityManager.m in Sources */,
 				ECB779A21A41D68200A096C4 /* main.m in Sources */,

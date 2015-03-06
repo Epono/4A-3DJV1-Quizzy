@@ -29,16 +29,17 @@
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
     
     self.date = [formatter stringFromDate:[scoreManagedObject valueForKey:@"date"]];
-    NSLog(@"%@",self.date);
-    NSLog(@"%@",self.playerName);
+    //NSLog(@"%@",self.date);
+    //NSLog(@"%@",self.playerName);
+    //NSLog(@"%@",self.score);
 
     
     return self;
 }
 
-//- (NSString *)description {
-//    return [NSString stringWithFormat: @"\nScore : %@\nPlayerName : \n%@ date", self.score, self.playerName, self.date];
-//}
+- (NSString *)description {
+    return [NSString stringWithFormat: @"\nScore : %@\nPlayerName : \n%@ date : %@", self.score, self.playerName, self.date];
+}
 
 -(NSString *)getPlayerName
 {

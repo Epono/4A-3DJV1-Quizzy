@@ -11,12 +11,15 @@
 #import "ScoreManagedObject.h"
 
 
-@interface ScoresViewController : UIViewController
+@interface ScoresViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property IBOutlet UILabel * scoreTitle;
 @property IBOutlet UILabel * playerNameTitle;
 @property (nonatomic,strong) Score * score;
 @property (nonatomic,strong) ScoreManagedObject * scoreManagedObject;
+@property(nonatomic, retain)NSMutableArray* mesDonnesArray;
+@property(nonatomic, retain)UITableView* maListeTbv;
+
 
 
 //-(NSArray)

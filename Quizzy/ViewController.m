@@ -15,7 +15,7 @@
 
 @interface ViewController ()
 
-@property(nonatomic)Model * monModele;
+@property(nonatomic)Model * myModel;
 
 @end
 
@@ -26,10 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a
+    //_myModel = [Model modelSingleton];
+    //[_myModel setRootView:self];
+   // [_myModel setNavController];
+    NSLog(@"%hhd",[_myModel setConnexion]);
     
-    _monModele = [[Model alloc]init];
     
-    NSLog(@"%hhd",[_monModele setConnexion]);
     
     
 }

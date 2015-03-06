@@ -18,6 +18,8 @@
 @property IBOutlet UIButton * button3;
 @property IBOutlet UIButton * button4;
 
+@property (nonatomic) UIViewController * rootView;
+
 @property(nonatomic, retain) NSMutableArray *questionsArray;
 
 @property(nonatomic, retain) IBOutlet UIProgressView *progress2;

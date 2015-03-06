@@ -186,7 +186,7 @@
     return true;
 }
 
--(NSArray *)getScore
+-(NSMutableArray *)getScore
 {
     AppDelegate * myAppDelegate = [[UIApplication sharedApplication ]delegate];
     NSManagedObjectContext * context = [myAppDelegate managedObjectContext];
@@ -207,19 +207,57 @@
     [allRequest setReturnsObjectsAsFaults:NO];
     NSError * allRequestError;
     NSArray *myEntities = [context executeFetchRequest:allRequest error:&allRequestError];
-    NSArray * myProperEntities;
-    for( int i = 0; i < myEntityCount;i++)
-    {
-        ScoreManagedObject* scoreManagedObjectList = [myEntities objectAtIndex:i];
-        Score* scoreList = [[Score alloc] initWithScoreManagedObject:scoreManagedObjectList];
-        //Faire l'ajout dans la liste
-        [myProperEntities arrayByAddingObject:scoreList];
-    
-    
-    }
+    NSMutableArray *myProperEntities = [[NSMutableArray alloc] init];
+    for( int i = myEntityCount; i > 0 ;--i)
+        {
+            if(i == myEntityCount)
+            {
+                --i;
+            }
+            
+            ScoreManagedObject* scoreManagedObjectList = [myEntities objectAtIndex:i];
+            Score* scoreList = [[Score alloc] initWithScoreManagedObject:scoreManagedObjectList];
+            //Faire l'ajout dans la liste
+            [myProperEntities addObject:scoreList];
+        }
+
     return myProperEntities;
 }
+/*
+-(UIViewController *)getRootView
+{
+    return _rootView;
+}
+-(void)setRootView:(UIViewController *) rootView
+{
+    
+    _rootView = rootView;
+}
 
+-(BOOL)setNavController
+{
+    _navController = [[UINavigationController alloc]initWithRootViewController:_rootView];
+    
+    return true;
+}
 
+-(UINavigationController *)getNav
+{
+    return _navController;
+}
 
+static	Model * _singleModel = nil ;
+
++(Model *)modelSingleton
+{
+    if(_singleModel == nil)
+    {
+        _singleModel = [[Model alloc]init];
+       
+        //_navController =
+
+    }
+    return _singleModel;
+}
+*/
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "ViewController.h"
 #import "Model.h"
 //va degager
 #import "AppDelegate.h"
@@ -14,6 +15,7 @@
 @interface GameViewController ()
 
 @property(nonatomic)Model * monModele;
+//@property(nonatomic)UIViewController * rootView;
 @property(nonatomic)UINavigationController * navController;
 
 //va degager
@@ -32,6 +34,9 @@ int currentCorrectAnswerIndex;
 - (void)viewDidLoad {
     [super viewDidLoad];
     _monModele = [[Model alloc]init];
+   // _rootView = [_monModele getRootView];
+    //_navController = [_monModele getNav];
+    
 
     _button1.tag = 0;
     [_button1 addTarget:self
@@ -64,7 +69,6 @@ int currentCorrectAnswerIndex;
                     action:@selector(skipQuestion)
           forControlEvents:UIControlEventTouchUpInside];
     
-    _scoreLabel.text = @"Score : 0";
     
     [self startGame];
 }
@@ -78,7 +82,7 @@ int currentCorrectAnswerIndex;
     // Initialisation du timer de jeu
     timeRemaining = 1;
     
-    progressTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1f
+    progressTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0f
                                                      target: self
                                                    selector: @selector(updateTimer)
                                                    userInfo: nil
@@ -86,7 +90,8 @@ int currentCorrectAnswerIndex;
     
     currentQuestionsCount = 1;
     score = 0;
-    
+    _scoreLabel.text = @"Score : 0";
+
     [self displayNextQuestion];
 }
 
@@ -95,6 +100,30 @@ int currentCorrectAnswerIndex;
     if(timeRemaining <= 0) {
         [progressTimer invalidate];
         //TODO: Fin la partie, afficher le score et renvoyer au menu principal
+        NSNumber * currentScore = [NSNumber numberWithInt:score];
+        [_monModele setScoreInCoreData:currentScore];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Fin de la partie"
+                                                                       message:[NSString stringWithFormat:@"Votre score de la partie est : %@", currentScore]
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Recommencer" style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction * action) {
+                                                                 // [self.navigationController popToViewController:self animated:YES];
+                                                                  [self startGame];  }];
+        
+        UIAlertAction* leaveAction = [UIAlertAction actionWithTitle:@"Retour au menu" style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction * actiont) {
+                                                            [self.navigationController popToRootViewControllerAnimated:YES]; }];
+        
+        [alert addAction:defaultAction];
+        [alert addAction:leaveAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+       
+        
+        
     }
     else {
         timeRemaining -= ((float)1/(float)180);
@@ -132,9 +161,6 @@ int currentCorrectAnswerIndex;
 -(void) displayNextQuestion {
     Question* question;
     question = [_monModele getQuestion];
-    /********************************** Recuperer les bonnes valeurs **********************/
-   // question = [self getQuestion];
-    /**************************************************************************************/
     
     // Recuperer une question
     // question = [model getQuestion];
@@ -183,10 +209,10 @@ int currentCorrectAnswerIndex;
     
     _questionLabel.text = question.questionLabel;
     
-    [_button1 setTitle: [@"A) " stringByAppendingString:answerA] forState: UIControlStateNormal];
-    [_button2 setTitle: [@"B) " stringByAppendingString:answerB] forState: UIControlStateNormal];
-    [_button3 setTitle: [@"C) " stringByAppendingString:answerC] forState: UIControlStateNormal];
-    [_button4 setTitle: [@"D) " stringByAppendingString:answerD] forState: UIControlStateNormal];
+    [_button1 setTitle: answerA forState: UIControlStateNormal];
+    [_button2 setTitle: answerB forState: UIControlStateNormal];
+    [_button3 setTitle: answerC forState: UIControlStateNormal];
+    [_button4 setTitle: answerD forState: UIControlStateNormal];
 }
 
 // Passe la question courante (malus ?) affiche la question suivante
@@ -200,10 +226,8 @@ int currentCorrectAnswerIndex;
 
 // Abandon
 -(void)giveUp {
-    //TODO: demander confirmation
-  
-    //TODO: Arreter tout (timers, etc)
-    NSNumber * currentScore = [NSNumber numberWithInt:score];
+
+    //NSNumber * currentScore = [NSNumber numberWithInt:score];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Quitter"
                                                                    message:@"Etes-vous sur de vouloir quitter ?"
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -211,7 +235,7 @@ int currentCorrectAnswerIndex;
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Non" style:UIAlertActionStyleCancel
                                                           handler:^(UIAlertAction * action) {
-                                                              progressTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1f
+                                                              progressTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0f
                                                                                                                target: self
                                                                                                              selector: @selector(updateTimer)
                                                                                                              userInfo: nil
@@ -221,23 +245,14 @@ int currentCorrectAnswerIndex;
     
     UIAlertAction* leaveAction = [UIAlertAction actionWithTitle:@"Oui" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * actiont) {
-                                                          
-                                                              [_monModele setScoreInCoreData:currentScore];
-                                                             /* _navController showViewController:viewController sender:<#(id)#>
-                                                              - (void)navigationController:(UINavigationController *)navigationController
-                                                                      didShowViewController:(UIViewController *)viewController
-                                                                                   animated:(BOOL)animated
-                                                              */
-                                                          }];
+                                                              [self.navigationController popToRootViewControllerAnimated:YES];}];
     
     [alert addAction:defaultAction];
     [alert addAction:leaveAction];
     
     [self presentViewController:alert animated:YES completion:nil];
                                            
-    
-    
-    //TODO: Sauvegarder score
+ 
     
     //TODO: Retour au menu principal
     

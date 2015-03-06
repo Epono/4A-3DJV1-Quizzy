@@ -18,8 +18,11 @@
 -(BOOL)setScoreInCoreData:(NSNumber *)score;
 -(BOOL)isConnected;
 -(BOOL)setConnexion;
--(NSArray*)getScore;
+-(NSMutableArray*)getScore;
+
 @property(nonatomic, retain) GameViewController *gameViewController;
 @property IBOutlet UILabel * monLabel;
+@property (nonatomic,retain) UIViewController * rootView;
+
 
 @end
